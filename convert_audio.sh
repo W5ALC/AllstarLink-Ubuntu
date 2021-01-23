@@ -1,11 +1,12 @@
 #!/bin/bash
 
-# Convert audio wav file to playable Asterisk Allstar audio file
+# Convert audio mp3 file to playable Asterisk Allstar audio file
 # D. Crompton 2/2019
+# Changed to use mp3 for personal reasons
 
 if [ -z $1 ] || [ ! -f $1 ]
   then
-   echo -e "\n Convert wav file to Asterisk/Allstar format\n"
+   echo -e "\n Convert mp3 file to Asterisk/Allstar format\n"
    echo -e "   convert_audio.sh <input file.mp3> [output_filename]\n"
    echo -e "   Input file must be .mp3, output file is input filename.ul"
    echo -e "   unless different second parameter filename is given.\n"
