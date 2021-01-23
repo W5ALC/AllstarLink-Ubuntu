@@ -1,0 +1,24 @@
+The usb-backup.sh and usb-restore.sh scripts will backup and restore the 
+main directories that will be required for restoring the Allstar BBB setup.
+
+usb-backup.sh
+  - use compress tar
+  - use devmon to automount the usb, and the script to detect the device
+  - create tar file (options to exclude)
+  - before backup, save system information, system, mac, basic config
+
+
+usb-restore.sh
+  - use devmon to mount usb device
+  - script to look at a specific directory and list the backups.
+  - extract the save system information and verify with user. see below.
+  - When restoring, check for the MAC address. If the mac address is different,
+    then prompt "Detected a Different BBB system backup, do you still want to
+    restore, no, continue..
+
+Backup File Names:
+
+     <hostname_<yyyy-mm-dd-hhmm>.tgz
+
+
+

@@ -1,0 +1,21 @@
+#! /bin/bash
+# Example Script showing connect to Alaska Morning Net
+# Change the 'connect from node' to your node
+# and the 'connect to' node to where you want to connect
+# omit the < and >
+# Run from a cron job that specifies the connect time
+#
+# This cron example shows how to enter into cron
+# type crontab -e  and add the line, change as needed
+#
+# The example shows at 12:44 (times are 24 hour) on
+# Monday through Saturday run the alaska_connect
+# script in the /etc/asterisk/local directory
+#
+# Modify this script to your needs
+#
+# 44 12 * * 1-6 /etc/asterisk/wa3dsp/alaska_connect
+#
+/usr/sbin/asterisk -rx "rpt fun <connectfrom> *73<connectto>"
+
+

@@ -1,0 +1,10 @@
+#! /bin/bash
+# Example Script to disconnect to Alaska Morning Net
+# Change the connect from node to your node
+# Run from a cron job that specifies the disconnect time
+#
+# Modify to your needs
+#
+/usr/sbin/asterisk -rx "rpt fun <connectfrom> *71<connectto>"
+
+

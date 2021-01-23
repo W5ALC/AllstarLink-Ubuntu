@@ -1,0 +1,17 @@
+#!/bin/bash
+
+export IPV6=/root/.hamvoip-no-ipv6
+export TAR=/usr/bin/tar
+export SYNC=/usr/bin/sync
+
+if [ -d $IPV6 -a  -e $IPV6/etc/hosts -a -e $IPV6/etc/named.conf ] ; then
+
+	cd $IPV6
+	$TAR cf - etc/hosts etc/named.conf usr/lib/systemd/system/named.service etc/sysctl.d/ipv6.conf | ( cd /; $TAR xvpf - )
+	$SYNC
+	echo ""
+	echo "IPv6 setup is now re-enabled. Please reboot your system (admin menu option #15)."
+	echo ""
+
+fi
+

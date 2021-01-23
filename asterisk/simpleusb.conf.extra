@@ -1,0 +1,9 @@
+; Additional simpleusb.conf commands
+; add to /etc/asterisk/simpleusb.conf as needed
+
+;dtmf_dsp=0    ; NO allstar command decoding, DTMF pass thru
+;dtmf_dsp=1    ; Normal Allstar DTMF decoding and muting - this is the default
+;dtmf_dsp=2    ; BOTH normal Allstar DTMF decoding AND DTMF pass thru. No muting
+;
+;gpio4 = out,0 ; This is required for FOB COS indicator where applicable.
+

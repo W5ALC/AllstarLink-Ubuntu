@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+  then
+   echo "No location given - ex: wx boston"
+  else
+   curl wttr.in/$1
+fi
+

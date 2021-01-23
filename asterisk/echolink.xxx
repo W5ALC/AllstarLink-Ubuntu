@@ -1,0 +1,42 @@
+[el0]
+confmode=no
+call=your-call			 ; Change this!
+pwd=your-password		 ; Change this!
+name=your-name			 ; Change this to your real name!
+qth=your-qth			 ; Change this to your actual QTH!
+email=someone@somewhere.com	 ; Change this!
+maxstns=20
+rtcptimeout=10
+node=your-Echolink-node-number	 ; Echolink node number - Change this!
+recfile=/tmp/recorded.gsm
+astnode=your-allstar-node-number ; Change this to your active Allstar node number!
+context=radio-secure
+server1=server1.echolink.org
+server2=server5.echolink.org
+server3=server3.echolink.org
+;naeast.echolink.org
+;nasouth.echolink.org
+;servers.echolink.org
+;backup.echolink.org
+; Change following setting to your parameters
+freq=446.1
+tone=88.5
+lat=40.223976  
+lon=-75.008529
+power=20
+height=50
+gain=6
+dir=0
+;
+; Message about your Echolink node. Up to 256 characters All in
+; one line. Use \n for newline. Uncomment to use.
+;
+;message=This is my message\nand another line\n
+;
+; Deny-permit - Only use one, either whitelist using permit or
+; blacklist using deny Echolink stations. Wildcards can be used
+; Example - permit WA3DSP*,W3XYZ* would allow these calls 
+; by themseleves or with -L or -R suffix. Uncomment to use.
+;
+;deny=
+;permit=

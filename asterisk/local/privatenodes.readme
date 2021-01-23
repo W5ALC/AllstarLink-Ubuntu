@@ -1,0 +1,10 @@
+The privatenodes.txt files is read by astdb.php to add local private nodes
+to the display listing for lsnodes or allmon. Add nodes in the following format -
+
+1000|WB6XYZ|Freq. or Description|Location
+
+
+One entry per line as shown above with no other text. This consists of four
+data fields separated by the vertical bar '|'
+
+Fields are - node, call, Freq or Description, location 

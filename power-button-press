@@ -1,0 +1,20 @@
+#!/bin/bash
+###
+###	The script gets called from /etc/acpi/handler.sh to handle a
+###	Power Button pressed event.  KB4FXC 2017-01-20
+###
+###  Add any code you want to run before power down here
+###  To say power down text change 1998 to your node number
+###  WA3DSP 2014-09-22
+###  Modified to use environment variable for node number
+###  WA3DSP 2014-10-17
+
+ . /usr/local/etc/allstar.env
+
+/usr/bin/asterisk -rx "rpt localplay $NODE1 /usr/local/sbin/powerdown"
+
+sleep 10
+
+/usr/local/sbin/astdn.sh
+/bin/sleep 1
+/usr/bin/poweroff

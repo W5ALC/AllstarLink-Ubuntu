@@ -1,0 +1,11 @@
+#!/bin/bash
+###
+###	Hack to change permissions on /var/log *before* launching
+###	the bind9, which runs as the user "named". There is likely
+###	a better way to do this. I unsuccessfully tried several
+###	other methods to set these permissions!
+###	KB4FXC 2014-08-22
+
+chmod 1777 /var/log
+
+exec /usr/bin/named -f -u named

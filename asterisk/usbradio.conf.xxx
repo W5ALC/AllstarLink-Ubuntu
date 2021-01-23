@@ -1,0 +1,32 @@
+;
+; Usbradio channel driver Configuration File
+;
+
+[general]
+
+[usb27225]
+
+hdwtype=0	
+rxboost=1
+txboost=1
+rxctcssrelax=1
+txctcssdefault=100.0
+rxctcssfreqs=100.0
+txctcssfreqs=100.0
+;rxctcssoverride=0
+carrierfrom=dsp
+ctcssfrom=dsp
+rxdemod=flat
+txprelim=yes
+txlimonly=no
+txtoctype=notone
+txmixa=composite
+txmixb=0
+invertptt=0
+duplex=1
+rxondelay=0
+rxnoisefiltype=0
+eeprom=0
+
+#includeifexists custom/usbradio.conf
+

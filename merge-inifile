@@ -1,0 +1,22 @@
+#!/bin/bash
+
+M="/usr/local/bin/crudini"
+CP="/bin/cp"
+
+if [ ! -x "$M" ] ; then
+	echo "$0: FAILURE -- Please install the crudini ini file management software!"
+	exit 2
+fi
+
+if [ -r "$1" -a -s "$1" -a -r "$2" -a -s "$2" ] ; then
+
+	D=$(/bin/date '+%Y-%m-%d@%T')
+	# Make a backup copy!
+	$CP "$1" "$1-$D.backup"
+	$M --merge "$1" < "$2"
+
+else
+	echo "USAGE: $0 <original-ini-file> <ini-file-to-merge-into-original>"
+	echo "$0: FAILURE -- Can not read merge file!"
+	exit 1
+fi

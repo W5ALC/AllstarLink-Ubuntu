@@ -1,0 +1,284 @@
+; Radio Repeater configuration file (for use with app_rpt)
+;
+; This file is shown with two local nodes. Use your editor to wholsale 
+; change any mention of node 1998 to your assigned node number.
+;
+; Likewise do the same for node 1999 if you are using a second node.
+; Node 1999 is defined as a pseudo node but could be setup as a second 
+; simpleusb port.
+;
+; This file defaults to a simplex node (duplex=1)
+;
+; Your Repeater
+;
+
+[1998]	; Change this to your assigned node number 
+;rxchannel=Radio/usb1998
+rxchannel = SimpleUSB/usb
+duplex=1
+erxgain=-3
+etxgain=3
+controlstates=controlstates
+scheduler=schedule1998
+morse=morse1998
+macro=macro1998
+functions=functions1998
+phone_functions=functions1998
+link_functions=functions1998
+telemetry=telemetry
+wait_times=wait-times
+context =  radio
+callerid = "Repeater" <000001998>
+idrecording=/etc/asterisk/local/node-id
+;idrecording=|iDE WA3XYZ/L
+idtalkover=|iDE WA3XYZ/L 
+accountcode=RADIO
+hangtime=100
+althangtime=100
+totime=300000 ; 170000
+idtime=600000
+politeid=30000
+
+unlinkedct=ct2 ; Sent when not connected to another node
+remotect=ct3   ; Sent when remote base connected
+linkunkeyct=ct8 ; sent when a network user unkeys
+;nolocallinkct=0
+;eannmode=1
+;connpgm=yourconnectprogram
+;discpgm=yourdisconnectprogram
+;lnkactenable=0
+;lnkacttime=1800
+;lnkactmacro=*52
+;lnkacttimerwarn=30seconds
+;remote_inact_timeout=1800
+;remote_timeout=3600
+nounkeyct=0
+holdofftelem=1
+telemdefault=2
+beaconing=0
+;funcchar = *                           ; function lead-in character (defaults to '*')
+;endchar = #                            ; command mode end character (defaults to '#')
+;;nobusyout=yes                         ; (optional) Do not busy-out reverse-patch when
+                                        ; normal patch in use
+;notelemtx = yes                        ; telemetry output does not make main
+                                        ; system transmit (optional)
+;propagate_dtmf = yes                   ; DTMF sent to system from link gets
+                                        ; repeated onto main system output (optional)
+;propagate_phonedtmf = yes              ; DTMF sent to system from phone gets
+                                        ; repeated into main system output and
+                                        ; link outputs (optional)
+;linktolink = yes                       ; disables forcing physical half-duplex
+                                        ; operation of main repeater while
+                                        ; still keeping half-duplex semantics
+                                        ; (optional)
+;inxlat = #456,#457,0123456789ABCD      ; translate digit strings inbound,
+                                        ; in this case intrepret #456 as star,
+                                        ; #457 as pound, and pass all the other
+                                        ; chars listed in arg3 (optional)
+;outxlat = *7,*0,0123456789#ABCD        ; translate digit string outbound,
+                                        ; in this case *7 generates star, *0
+                                        ; generates pound, and all the other
+                                        ; digits pass along
+;macro = macro-different                ; section containing macros (optional)
+;extnodes = extnodes-different          ; section in extnodefile containing
+                                        ; dynamic node information (optional)
+;extnodefile = different-file           ; file containing dynamic node info (optional)
+;archivedir = some-directory            ; defines and enables activity recording
+                                        ; into specified directory (optional)
+;monminblocks = 2048                    ; Min 1K blocks to be left on partition
+                                        ; (will not save monitor output if disk
+                                        ; too full)
+;startup_macro = *7                     ; Macro to run at startup (optional)
+;
+;; The tailmessagetime,tailsquashedtime, and tailmessages need to be set
+;; to support tail messages. They can be omitted otherwise.
+;
+;tailmessagetime=1800000			; Play a tail message every 5 mins
+;tailsquashedtime=120000			; If squashed by another user,
+;;					  try again after 30 seconds
+; following formerly tailmessages=
+;tailmessagelist=/etc/asterisk/some_file		;list of messages to be played for tail message
+;
+; *** Status Reporting ***
+;
+; Uncomment the following two statpost lines to report the status of your node to stats.allstarlink.org
+;statpost_program=/usr/bin/wget,-q,--timeout=15,--tries=1,--output-document=/dev/null 
+;statpost_url=http://stats.allstarlink.org/uhandler.php ; Status updates 
+
+
+; Second node shown as a pseudo node 
+;
+[1999] ; Change this to your assigned node number
+;rxchannel=Radio/usb1998
+;rxchannel = SimpleUSB/usb1
+rxchannel=dahdi/pseudo
+duplex=1
+erxgain=-3
+etxgain=3
+controlstates=controlstates
+scheduler=schedule1998
+morse=morse1998
+macro=macro1998
+functions=functions1998
+phone_functions=functions1998
+link_functions=functions1998
+telemetry=telemetry
+wait_times=wait-times
+context =  radio
+callerid = "Repeater" <000001999>
+idrecording=/etc/asterisk/local/node-id
+accountcode=RADIO
+hangtime=100
+althangtime=100
+totime=300000 ; 170000
+idtime=600000
+politeid=30000
+idtalkover=|iDE WA3XYZ/L
+unlinkedct=ct2 ; Sent when not connected to another node
+remotect=ct3   ; Sent when remote base connected
+linkunkeyct=ct8 ; sent when a network user unkeys
+;nolocallinkct=0
+;eannmode=1
+;connpgm=yourconnectprogram
+;discpgm=yourdisconnectprogram
+;lnkactenable=0
+;lnkacttime=1800
+;lnkactmacro=*52
+;lnkacttimerwarn=30seconds
+;remote_inact_timeout=1800
+;remote_timeout=3600
+nounkeyct=0
+holdofftelem=1
+telemdefault=2
+beaconing=0
+
+; Uncomment following two lines to advertise this node
+;statpost_program=/usr/bin/wget,-q,--timeout=15,--tries=1,--output-document=/dev/null
+;statpost_url=http://stats.allstarlink.org/uhandler.php ; Status updates
+;
+; End Second node
+;
+; Morse code parameters, these are common to all repeaters.
+;
+
+[morse1998]
+
+speed=20
+frequency=800
+amplitude=4096
+idfrequency=750
+idamplitude=512 ; 1024
+
+[controlstates]
+;statenum = copcmd,[copcmd]...
+0 = rptena,lnkena,apena,totena,ufena,noicd  ; Normal operation
+1 = rptena,lnkdis,apdis,totena,ufdis,noice  ; Repeater only operation
+
+[schedule1998]                                                                      
+;dtmf_function =  m h dom mon dow  ; ala cron, star is implied                                                  
+;1=00 * * * *   ;run macro 1 on the hour 
+
+[functions1998]
+1=ilink,1
+2=ilink,2
+3=ilink,3
+4=ilink,4
+5=macro,1
+
+70=ilink,5
+71=ilink,11
+72=ilink,12
+73=ilink,13
+75=ilink,15
+76=ilink,6
+77=ilink,16
+78=ilink,18
+
+80=status,11	; ID (local)
+81=status,12	; Time of Day (local)
+
+; Say 24 hour time - change to your node
+82=cmd,/usr/local/sbin/say24time.pl 1998
+
+61=autopatchup,context=pbx_server,noct=1,farenddisconnect=1,dialtime=20000,quiet=1	; Autopatch up
+0=autopatchdn				; Autopatch down
+
+; Play a Node announcement
+;920=localplay,/etc/asterisk/local/some-file
+
+;989=cop,4
+980=status,3
+99=cop,6 ; PPT on, # = release
+
+; Example functions to call scripts
+; These are commented out. Remove ';' and change function
+; command and node to your choice 
+; Note that halting the system remotely would require
+; a power cycle to recover.
+;
+;A1=cmd,/usr/local/sbin/sayip.sh 1998 		; Say local IP to radio
+;A3=cmd,/usr/local/sbin/saypublicip.sh 1998	; Say Public IP to radio
+;B1=cmd,/usr/local/sbin/halt.sh 1998		; Halt the system (linux total shutdown)
+;B3=cmd,/usr/local/sbin/reboot.sh 1998		; Reboot the system
+;B6=cmd,/usr/local/sbin/astres.sh		; Restart Asterisk
+
+; Place command macros here
+
+[macro1998]
+;Macro number = command string (ea command separated by space) -end with HASH
+1=*81 *80#    ; play time and voice ID
+
+
+[telemetry]
+
+ct1=|t(350,0,100,2048)(500,0,100,2048)(660,0,100,2048)
+ct2=|t(660,880,150,2048)  
+ct3=|t(440,0,150,4096) 
+ct4=|t(550,0,150,2048)
+ct5=|t(660,0,150,2048)
+ct6=|t(880,0,150,2048)
+ct7=|t(660,440,150,2048)
+ct8=|t(700,1100,150,512) ; 2048 amplitude
+remotetx=|t(1633,0,50,3000)(0,0,80,0)(1209,0,50,3000); 
+remotemon=|t(1209,0,50,2048) 
+cmdmode=|t(900,903,200,2048)
+functcomplete=|t(1000,0,100,2048)(0,0,100,0)(1000,0,100,2048)
+patchup=rpt/callproceeding
+patchdown=rpt/callterminated
+
+;
+; This section allows wait times for telemetry events to be adjusted
+; A section for wait times can be defined for every repeater
+;
+
+[wait-times]                                                                                                 
+telemwait=500
+idwait=300
+unkeywait=400
+calltermwait=2000
+
+;
+; This is where you define your nodes which cam be connected to.
+;
+
+[nodes]
+; Note, if you are using automatic update for allstar link nodes,
+; no allstar link nodes should be defined here. Only place a definition
+; for your local nodes, and private (off of allstar link) nodes here.
+ 
+1998 = radio@127.0.0.1/1998,NONE
+1999 = radio@127.0.0.1/1999,NONE
+
+; Memories for remote bases
+
+[memory]
+
+;00 = 146.580,100.0,m
+;01 = 147.030,103.5,m+t
+;02 = 147.240,103.5,m+t
+;03 = 147.765,79.7,m-t
+;04 = 146.460,100.0,m
+;05 = 146.550,100.0,m      
+
+
+#includeifexists custom/rpt.conf
