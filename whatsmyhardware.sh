@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Read Raspberry Pi hardwarw Type
-# If no parameter is specified reads form /proc
+# Read Raspberry Pi hardware Type
+# If no parameter is specified reads from /proc
 # Parameter is the Pi revision number
 # Available at - 
 # https://www.raspberrypi.org/documentation/hardware/raspberrypi/revision-codes/
